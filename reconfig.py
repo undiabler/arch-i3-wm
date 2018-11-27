@@ -21,12 +21,14 @@ for x in found:
 		monitors.append(x[0])
 
 i3Config = env.get_template('config.j2')
-open("config", "w").write(i3Config.render(
+with open("config", "w") as cfg:
+	cfg.write(i3Config.render(
 		monitors=monitors, 
 		twomonitors=len(monitors)==2,
 		home=home,
-	)).close()
+	))
 
 
 blockConfig = env.get_template('i3blocks.j2')
-open("i3blocks.conf", "w").write(blockConfig.render(home=home)).close()
+with open("i3blocks.conf", "w") as cfg:
+	cfg.write(blockConfig.render(home=home))
