@@ -194,7 +194,7 @@ for_window [class="^.*"] border pixel 1
 assign [class="Subl3"] 1
 
 set $DP1 {{ monitors[0] }}
-set $DP2 {{ monitors[1] }}
+set $DP2 {% if twomonitors %}{{ monitors[1] }}{% else %}{{ monitors[0] }}{% endif %}
 
 workspace 1 output $DP1
 workspace 2 output $DP1
