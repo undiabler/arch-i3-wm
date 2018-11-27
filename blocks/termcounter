@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+count=$(ps -ax | grep -c '[s]sh')
+
+echo $count
+echo $count
+echo ""

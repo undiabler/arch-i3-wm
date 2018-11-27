@@ -1,0 +1,42 @@
+bar {
+
+	# font -*-ubuntu-medium-r-*-*-12-*-*-*-*-*-*-u
+	font pango:terminus 9
+	output $DP1
+	# status_command i3status
+	# tray_output none
+
+	colors {
+		statusline      #999999
+		background      $dgrey
+
+		# Colors                border          backgr.         text
+		focused_workspace       $lgrey          $lgrey          $white
+		active_workspace        $lgrey          $grey           $white
+		inactive_workspace      $grey           $grey           $white
+		urgent_workspace        $orange         $orange         $white
+	}
+}
+
+bar {
+
+	# font -*-ubuntu-medium-r-*-*-12-*-*-*-*-*-*-u
+	font pango:terminus, Awesome 9
+	output $DP2
+	status_command i3blocks -c ~/.config/i3/blocks.conf
+	tray_output none
+
+	colors {
+
+		statusline      #999999
+		background      $dgrey
+
+		# Colors                border          backgr.         text
+		focused_workspace       $lgrey          $lgrey          $white
+		active_workspace        $lgrey          $grey           $white
+		inactive_workspace      $grey           $grey           $white
+		urgent_workspace        $orange         $orange         $white
+
+	}
+}
+

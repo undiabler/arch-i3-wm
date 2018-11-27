@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+dir="$HOME/Dc"
+
+if mountpoint -q -- "$dir"; then 
+	echo "<span color='yellow'><span font_desc='FontAwesome'></span> M</span>"
+else
+	echo "<span font_desc='FontAwesome'></span> U"
+fi

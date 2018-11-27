@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+bad_ping='100'
+
+while true; do 
+	ping -O -c 60 -i 3 8.8.8.8 | while read line ; do 
+
+		# echo -e "$(date)\t $line" ;
+
+		pattern='time=([0-9]+(\.[0-9]+)?) ms'
+		[[ $line =~ $pattern ]]
+
+		if [ -z "${BASH_REMATCH[1]}" ]; then
+			echo "<span color='red'>fail</span>"
+		else
+			if (( $(echo "${BASH_REMATCH[1]} > $bad_ping" |bc -l) )); then 
+				echo "<span color='red'><span font_desc='FontAwesome'> ${BASH_REMATCH[1]}</span></span>"
+			else
+				echo "<span font_desc='FontAwesome'> ${BASH_REMATCH[1]}</span>"
+			fi
+		fi
+
+	done
+done
