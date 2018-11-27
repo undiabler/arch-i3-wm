@@ -30,5 +30,5 @@ with open("config", "w") as cfg:
 
 
 blockConfig = env.get_template('i3blocks.j2')
-with open("i3blocks.conf", "w") as cfg:
+with open("blocks.conf", "w") as cfg:
 	cfg.write(blockConfig.render(home=home))
