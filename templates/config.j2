@@ -24,6 +24,7 @@ font pango:Ubuntu light 8
 
 exec --no-startup-id $HOME/Dropbox/linux/wallpaper.sh
 exec --no-startup-id compton -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88
+exec --no-startup-id flameshot
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -46,14 +47,14 @@ bindsym $mod+r exec gmrun
 # bindsym $mod+k focus down
 # bindsym $mod+semicolon focus right
 
-bindsym XF86AudioRaiseVolume exec amixer set PCM 5%+
-bindsym XF86AudioLowerVolume exec amixer set PCM 5%-
-bindsym XF86AudioPlay exec mpc play
-bindsym XF86AudioStop exec mpc pause
-bindsym XF86AudioPrev exec mpc prev
-bindsym XF86AudioNext exec mpc next
+#bindsym XF86AudioRaiseVolume exec amixer set PCM 5%+
+#bindsym XF86AudioLowerVolume exec amixer set PCM 5%-
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioStop exec playerctl pause
+bindsym XF86AudioPrev exec playerctl prev
+bindsym XF86AudioNext exec playerctl next
 
-bindsym Print exec scrot ~/screenshots/%Y-%m-%d-%T-screenshot.png
+bindsym Print exec flameshot gui
 
 # перемещение фокуса стрелками
 bindsym $mod+Left focus left
