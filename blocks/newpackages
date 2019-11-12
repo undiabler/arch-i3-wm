@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+yay -Sy > /dev/null 2>&1 &
+updatepacs=$(pacman -Qu | wc -l)
+
+if (( $updatepacs > 0 )); then
+	echo "<span color='yellow'><span font_desc='FontAwesome'> ${updatepacs}</span></span>"
+else
+	echo "<span color='green'><span font_desc='FontAwesome'></span></span>"
+fi
