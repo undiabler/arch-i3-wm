@@ -4,7 +4,7 @@ yay -Sy > /dev/null 2>&1 &
 updatepacs=$(pacman -Qu | wc -l)
 
 if (( $updatepacs > 0 )); then
-	echo "<span color='yellow'><span font_desc='FontAwesome'> ${updatepacs}</span></span>"
+	echo "<span color='yellow'><span font_desc='FontAwesome'> </span>${updatepacs}</span>"
 else
 	echo "<span color='#00FF00'><span font_desc='FontAwesome'> </span></span>"
 fi
