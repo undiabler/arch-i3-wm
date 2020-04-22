@@ -14,9 +14,9 @@ while true; do
 			echo "<span color='red'>fail</span>"
 		else
 			if (( $(echo "${BASH_REMATCH[1]} > $bad_ping" |bc -l) )); then 
-				echo "<span color='red'><span font_desc='FontAwesome'> ${BASH_REMATCH[1]}</span></span>"
+				echo "<span color='red'><span font_desc='FontAwesome'> </span>${BASH_REMATCH[1]}</span>"
 			else
-				echo "<span font_desc='FontAwesome'> ${BASH_REMATCH[1]}</span>"
+				echo "<span font_desc='FontAwesome'> </span>${BASH_REMATCH[1]}"
 			fi
 		fi
 
