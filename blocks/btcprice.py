@@ -10,7 +10,8 @@ def get_price():
 			price=float(obj.get("last"))
 			high=float(obj.get("high"))
 			low=float(obj.get("low"))
-			diff = (price-low)/low if math.fabs((price-low)/low)>math.fabs((high-price)/high) else (high-price)/high;
+			# print(price,high,low)
+			diff = (price-low)/low if math.fabs((price-low)/low)>math.fabs((high-price)/high) else (price-high)/high;
 			return f"{price:.1f}$ <span color='{'red' if diff<0 else 'green'}'>{diff:+.2%}</span>"
 	except Exception as e:
 		return f"<span color='yellow'>{e}</span>"
