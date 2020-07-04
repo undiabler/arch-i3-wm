@@ -11,21 +11,25 @@ pattern='mdev = ([.0-9]+)\/([.0-9]+)\/([.0-9]+)\/([.0-9]+) ms'
 [[ $body =~ $pattern ]]
 #echo ${BASH_REMATCH}
 if [ -z "${BASH_REMATCH[2]}" ]; then
-	echo "<span color='red'>fail</span>"
+	echo -n "<span color='red'>fail</span>"
 else
 	if (( $(echo "${BASH_REMATCH[2]} > $bad_ping" |bc -l) )); then 
-		echo "<span color='red'><span font_desc='FontAwesome'> </span>${BASH_REMATCH[2]}</span>"
+		echo -n "<span color='red'><span font_desc='FontAwesome'> </span>${BASH_REMATCH[2]}</span>"
 	else
-		echo "<span font_desc='FontAwesome'> </span>${BASH_REMATCH[2]}"
+		echo -n "<span font_desc='FontAwesome'> </span>${BASH_REMATCH[2]}"
 	fi
 fi
 
 # parse lost packets
 pattern=' ([.0-9]+)\% packet loss'
 [[ $body =~ $pattern ]]
-#echo ${BASH_REMATCH}
-if [ -z "${BASH_REMATCH[1]}" ]; then
+#echo ${BASH_REMATCH[1]}
+#if [ -z "${BASH_REMATCH}" ]; then
+#	echo "fi2";
 	if (( $(echo "${BASH_REMATCH[1]} > 0" |bc -l) )); then 
-		echo " - <span color='red'>${BASH_REMATCH[1]}%</span>"
+		echo -n " - <span color='red'>${BASH_REMATCH[1]}%</span>"
 	fi
-fi
+#fi
+
+#endline 
+echo "";
