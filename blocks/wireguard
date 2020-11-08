@@ -1,0 +1,11 @@
+#!/bin/bash
+
+DEV_FILE='/sys/class/net/wg0/dev_id'
+
+if [[ -e "${DEV_FILE}" ]]; then
+  echo "<span color='#00FF00'><span font_desc='FontAwesome'></span> ON</span>"
+#  echo "on"
+else
+  echo "<span color='red'><span font_desc='FontAwesome'></span> OFF</span>"
+#  echo ""
+fi
